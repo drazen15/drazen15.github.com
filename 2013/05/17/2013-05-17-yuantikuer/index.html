@@ -1,0 +1,688 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="PM,Thinking," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="之前做过一个猿题库的简单分析,其中预测过猿题库之后的一个大概发展:会在已有的智能算法模型和产品架构上,快速的推出其他内容的考试.三个月过去了,猿题库继申论和行测之后,推出了国家司法考试,看来我预测的还是比较准确的.
+之前的那篇文章只是粗略的一个看法,其中还有很多不足,比如:初期如何确定题目的难度等信息?猿题库具体采用的算法是什么?是否包括了完整的IRT算法?当时的信息并不多,但是现在可以做一个简单">
+<meta property="og:type" content="article">
+<meta property="og:title" content="猿题库Ⅱ">
+<meta property="og:url" content="http://wangruoyu.me/2013/05/17/2013-05-17-yuantikuer/index.html">
+<meta property="og:site_name" content="子弹穿不透思想">
+<meta property="og:description" content="之前做过一个猿题库的简单分析,其中预测过猿题库之后的一个大概发展:会在已有的智能算法模型和产品架构上,快速的推出其他内容的考试.三个月过去了,猿题库继申论和行测之后,推出了国家司法考试,看来我预测的还是比较准确的.
+之前的那篇文章只是粗略的一个看法,其中还有很多不足,比如:初期如何确定题目的难度等信息?猿题库具体采用的算法是什么?是否包括了完整的IRT算法?当时的信息并不多,但是现在可以做一个简单">
+<meta property="og:updated_time" content="2013-05-21T13:42:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="猿题库Ⅱ">
+<meta name="twitter:description" content="之前做过一个猿题库的简单分析,其中预测过猿题库之后的一个大概发展:会在已有的智能算法模型和产品架构上,快速的推出其他内容的考试.三个月过去了,猿题库继申论和行测之后,推出了国家司法考试,看来我预测的还是比较准确的.
+之前的那篇文章只是粗略的一个看法,其中还有很多不足,比如:初期如何确定题目的难度等信息?猿题库具体采用的算法是什么?是否包括了完整的IRT算法?当时的信息并不多,但是现在可以做一个简单">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 猿题库Ⅱ | 子弹穿不透思想 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">子弹穿不透思想</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">打杂的，图书馆管理员，Gooner till I die</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                猿题库Ⅱ
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2013-05-17T21:42:00+08:00" content="2013-05-17">
+              2013-05-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Thinking/" itemprop="url" rel="index">
+                    <span itemprop="name">Thinking</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>之前做过一个猿题库的<a href="http://wangruoyu.me/blog/2013/02/26/yuantiku/" title="猿题库">简单分析</a>,其中预测过猿题库之后的一个大概发展:会在已有的智能算法模型和产品架构上,快速的推出其他内容的考试.三个月过去了,猿题库继申论和行测之后,推出了国家司法考试,看来我预测的还是比较准确的.</p>
+<p>之前的那篇文章只是粗略的一个看法,其中还有很多不足,比如:初期如何确定题目的难度等信息?猿题库具体采用的算法是什么?是否包括了完整的IRT算法?当时的信息并不多,但是现在可以做一个简单的猜测了.</p>
+<p>首先是<strong>初期如何确定题目的难度信息,建立一个初始的数据库?</strong>猿题库的做法是邀请该领域的专家对题目进行初步的分级,我记得刚开始的猿题库首页有公务员考试辅导专家沈栋的信息,而且在粉笔网上沈栋老师是非常活跃的,或许沈栋老师加入了猿题库的团队也说不定.通过人工的手段可以确立初步的难度等级.<br><a id="more"></a><br><strong>猿题库采用的算法是什么?</strong>今年2月份的时候看过一篇报道采访猿题库的负责人,其中提到了猿题库的推荐算法:</p>
+<blockquote>
+<p>某名用户A做了一道难度系数为3的工程类数学题,通过聚合与用户A有类似DNA的所有其他用户BCDEF…的练习数据(B用户可能做了4,5,6;C用户做了2,3,4等等),就能覆盖该DNA下用户做 1-9各个难度系数的题目频次,模拟出一个无限趋近用户A真实行为的虚拟人–针对这个虚拟人的做题方案,就可为用户A的评估和智能出题提供支持.</p>
+</blockquote>
+<p>恕我在推荐算法方面了解不多,我感觉这个算法看上去非常像亚马逊的推荐算法:根据具有相同DNA的人的习惯来推荐相关物品,而猿题库也在不断的招聘算法牛人来优化他们的算法模型.而且算法是后台非常复杂的一套东西,即使表现出来的非常简单.</p>
+<p>我在之前的一片文章<a href="http://wangruoyu.me/blog/2013/04/05/weilaidejiaoyu/" title="未来的教育">&lt;未来的教育&gt;</a>中曾经提到过教育的四个目标,而猿题库则很好的解决了其中的两个:降低信息获取的阻力和提高处理信息的效率.这一切都是依靠机器来完成的.未来教育的特征就应该是自适应和个性化,大数据和云处理很好的帮助我们达到这个目标.</p>
+<p>与猿题库相反的另一个考试类产品是蛙文网,主打是全程人工助学,从短期来看,蛙文的模式可能占上风(全程的老师一对一辅导肯定好与还比较笨的机器),而从长远来看,当数据量不断增大的时候,猿题库的优势就会表现出来,会做到比你更懂你自己.这就是机器学习的优势.</p>
+<p>当然并不是说机器学习会完全的替代老师,我对猿题库的定位更像是一个学习助手,老师的定位则是导师.你可以通过猿题库大量的做题,但是很多题目的解析,相关题目间的引导,学习方法的传授还是要靠老师来完成.猿题库以及类似产品的出现,必然会导致老师的生存空间受到挤压,这就要求老师找准自己的位置,转变角色,去做机器做不到的事情.</p>
+<p>猿题库现在还应该算是一个创业公司,已经越过了产品验证阶段,进入了”降低单个用户获取成本”的阶段.这个阶段最重要的是树立品牌,最好的方法就是通过口碑,因为产品的核心用户群已经非常明确了.口碑也是建立在产品之上的,如果大量猿题库的用户都能顺利的通过考试,口碑自然而然的就建立起来了.</p>
+<p>在中国做应试教育是最容易的了,因为有很大的强需求(虽然应试教育不是我所想的未来的教育).除了行测,申论,司法考试,还有会计类考试,计算机类的考试等等都可以做.中国最不缺的就是各种考试证等.然后等考试结束之后再树立一两个高分典型,其他的考生就会蜂拥而至,新东方不就是这么搞得吗,中国人最相信的就是这种典型模范了(可参考中医,成功励志学等等).</p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PM/" rel="tag">#PM</a>
+          
+            <a href="/tags/Thinking/" rel="tag">#Thinking</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/05/14/2013-05-14-zaitanyidongsuipianhua/" rel="next" title="再谈移动碎片化">
+                <i class="fa fa-chevron-left"></i> 再谈移动碎片化
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/05/22/2013-05-22-yiwanxiaoshitiancaililun/" rel="prev" title="一万小时天才理论">
+                一万小时天才理论 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="Roy Wang" />
+          <p class="site-author-name" itemprop="name">Roy Wang</p>
+          <p class="site-description motion-element" itemprop="description">产品 | 阅读 | 创业</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">89</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目錄</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roy Wang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

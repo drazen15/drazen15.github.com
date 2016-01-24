@@ -1,0 +1,721 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="PM," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="移动网校有很多的细节问题一直都没有精力修改,这里我想说两个我不是很认同的问题,这两个问题背后反映的更多的是产品思路上的不同.
+通关机制网校的课程采取了通关的机制,即:用户购买课程之后,只能学习第一课,在满足一些条件之后,比如学习第一课的时间超过10分钟或者做题得分超过6分等.才可以解锁第二课,依此类推.我是非常不赞成这种做法的,并提出过多次的建议,但每次都被以相同的理由给驳回:
+
+
+这是我们的课程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动网校的问题">
+<meta property="og:url" content="http://wangruoyu.me/2013/04/18/2013-04-18-yidongwangxiao/index.html">
+<meta property="og:site_name" content="子弹穿不透思想">
+<meta property="og:description" content="移动网校有很多的细节问题一直都没有精力修改,这里我想说两个我不是很认同的问题,这两个问题背后反映的更多的是产品思路上的不同.
+通关机制网校的课程采取了通关的机制,即:用户购买课程之后,只能学习第一课,在满足一些条件之后,比如学习第一课的时间超过10分钟或者做题得分超过6分等.才可以解锁第二课,依此类推.我是非常不赞成这种做法的,并提出过多次的建议,但每次都被以相同的理由给驳回:
+
+
+这是我们的课程">
+<meta property="og:updated_time" content="2013-05-28T10:01:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动网校的问题">
+<meta name="twitter:description" content="移动网校有很多的细节问题一直都没有精力修改,这里我想说两个我不是很认同的问题,这两个问题背后反映的更多的是产品思路上的不同.
+通关机制网校的课程采取了通关的机制,即:用户购买课程之后,只能学习第一课,在满足一些条件之后,比如学习第一课的时间超过10分钟或者做题得分超过6分等.才可以解锁第二课,依此类推.我是非常不赞成这种做法的,并提出过多次的建议,但每次都被以相同的理由给驳回:
+
+
+这是我们的课程">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 移动网校的问题 | 子弹穿不透思想 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">子弹穿不透思想</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">打杂的，图书馆管理员，Gooner till I die</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                移动网校的问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2013-04-18T22:25:00+08:00" content="2013-04-18">
+              2013-04-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Thinking/" itemprop="url" rel="index">
+                    <span itemprop="name">Thinking</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>移动网校有很多的细节问题一直都没有精力修改,这里我想说两个我不是很认同的问题,这两个问题背后反映的更多的是产品思路上的不同.</p>
+<h3 id="u901A_u5173_u673A_u5236"><a href="#u901A_u5173_u673A_u5236" class="headerlink" title="通关机制"></a>通关机制</h3><p>网校的课程采取了通关的机制,即:用户购买课程之后,只能学习第一课,在满足一些条件之后,比如学习第一课的时间超过10分钟或者做题得分超过6分等.才可以解锁第二课,依此类推.<br>我是非常不赞成这种做法的,并提出过多次的建议,但每次都被以相同的理由给驳回:</p>
+<blockquote>
+<ol>
+<li>这是我们的课程特色</li>
+<li>用户的学习过程会充满乐趣(每次的解锁就是一种乐趣).</li>
+<li>解锁机制可以促进用户不断的学习.</li>
+</ol>
+</blockquote>
+<p>如果我们深入的去思考这个为题的话,会发现解锁机制并没有给我们带来如上的好处,相反却给我们造成了很多不必要的麻烦.<br><a id="more"></a><br>首先没有数据显示采用通关班之后,用户完成课程的比率有明显的上升,甚至用户学习章节的数量都没有明显的增加.</p>
+<p>其次这个机制带来了很多的问题:</p>
+<ul>
+<li>用户购买后发现并没有这个课程的完全自主权,学什么并不是自己来掌握.</li>
+<li>非常多的用户可能已经掌握了初级的知识,但是还必须从头开始学,造成了时间上的浪费.</li>
+<li>课程快过期的时候,希望能够优先学习后面的课程,没有解锁的话就很头疼.我们已经遇到了很多这种情况的反馈,解决的方法是:添加一个一键解锁的功能,在某门课程快过期的时候,可以向工作人员申请解锁剩下的课程.</li>
+<li>由于解锁机制的缘故,手机端和服务器的通信要增加很多信息,而这些信息是通过登录接口传输的,所以…经常会出现一些莫名其妙的状况.</li>
+</ul>
+<p>从通关机制所反映出的问题,我们可以看到有这两种思维的存在:</p>
+<ol>
+<li><strong>家长思维</strong>.类似于典型的学校,认为自己的所有行为都是为了用户好.所以我设置解锁机制,是为了让用户能够坚持学习,体会学习的乐趣,至于用户到底喜不喜欢无所谓了.</li>
+<li><strong>用户提出来的便是需求</strong>.这一点在网校的另一个方面表现的更明显,稍后我会讲到.</li>
+</ol>
+<p>其实保持用户的学习热情,我们可以用到很多的其他方式,比如排行榜,成就,徽章等等正向激励的方式,而不是解锁这种简单粗暴的方式.学习过程和游戏过程是完全不一样的.游戏中的成就可以用来向好友炫耀,最重要的是游戏是一个主动挑战的过程,用户在游戏中已经被充分的调动了起来,不断的接受游戏中的反馈和激励,然后完成一个又一个的目标.而学习的过程缺少了很多的反馈以及激励,用户在整个学习过程中很难有兴奋的感觉,迎接挑战的欲望就减少了很多.所以通关机制到底适不适用,我们应该怎么用,是需要经过认真思考和实践的,而不是拍脑袋就上.</p>
+<h3 id="u8BFE_u4EF6_u95EE_u9898"><a href="#u8BFE_u4EF6_u95EE_u9898" class="headerlink" title="课件问题"></a>课件问题</h3><p>之前移动端的课件是不可以进行互动的,比如做题,播放课件中的小音频和视频等.而web端的课件由于采用的是flash,可以做题,但还是有一定的局限.</p>
+<p>自从移动端的网校推出之后,很多用户反馈说希望在移动端增加做题的功能,像web端那样,在学习的课件中穿插一些测验试题.正好此时领导希望将我们制作课件的工具进行一次升级,更方便老师们制作电子课件,所以就开始重新制作第三代课件,要求支持全平台,并且包含各种互动的功能.</p>
+<p>这里我就不说课件制作的问题了(课件中插入题目引起了非常多的问题),而是关注另外一个问题:用户提出要在课件中增加做题的功能,这是<strong>真实的用户需求</strong>吗?</p>
+<p>很多时候用户说的并不是他想要的,他的真实需求需要我们不断的去挖掘,典型的例子就是iPhone出现以前的手机市场.所以用户提出要在课件中增加做题的功能,最核心的需求其实是:<strong>我需要一种更高效,更加灵活的学习方式,帮助我尽快的掌握学过的知识</strong>.</p>
+<p>在我们的传统教育中,最常用的方法是老师将知识填鸭式的塞给学生,然后学生通过大量的做题练习去巩固这些知识.至于学哪些知识,用什么样的方法去学习则不再考虑之中.我们现在也将这种”坏习惯”带到了互联网教育当中,认为做题就是终极的学习方式了.</p>
+<p>我们更应该思考的是,如何利用手机的特性,为用户提供更好的学习方式,不仅仅是对web端的互补,还是促进.</p>
+<p>下面是我想到的有关课件可以做改进的地方:</p>
+<ul>
+<li>课件内容针对移动端做优化.</li>
+<li>播放器针对移动端的优化.</li>
+<li>题目不要穿插在课件中,会不停的打断音频的播放,用户需要不停的用手去操作.而且对于过去半分钟学到的知识,用户可以非常轻易的答对题目,这样就失去了做题的意义.可以单独的将题放在一个单元,并安排在一个恰当的时间点(可以根据用户的学习曲线).</li>
+<li>帮助用户制定学习计划,将一个大的学习目标拆分为众多小的学习目标,完成之后给用户正向的激励,鼓励用户不断的挑战.并且根据用户的实际需求,调整学习计划,做到自适应和个性化.</li>
+<li>利用手机硬件的特性(摄像头,语音等),用户可以和移动设备做更多的交互.</li>
+</ul>
+<p>在移动网校的开发中,仍然会发现其他的很多细节都是欠缺考虑的.好的产品并不是一步到位的,而是始终在一点一点的进步.所以接下来要更多的去打磨这个产品.</p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PM/" rel="tag">#PM</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/04/16/2013-04-16-zhishiyujingyan/" rel="next" title="知识与经验">
+                <i class="fa fa-chevron-left"></i> 知识与经验
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/04/21/2013-04-21-beixiaofeidezaihai/" rel="prev" title="被消费的灾害">
+                被消费的灾害 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="Roy Wang" />
+          <p class="site-author-name" itemprop="name">Roy Wang</p>
+          <p class="site-description motion-element" itemprop="description">产品 | 阅读 | 创业</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">89</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#u901A_u5173_u673A_u5236"><span class="nav-number">1.</span> <span class="nav-text">通关机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u8BFE_u4EF6_u95EE_u9898"><span class="nav-number">2.</span> <span class="nav-text">课件问题</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roy Wang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
